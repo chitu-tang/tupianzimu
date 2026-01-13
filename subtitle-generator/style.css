@@ -1,0 +1,233 @@
+:root {
+    --green: #22c55e;
+    --green-dark: #16a34a;
+    --blue: #1e90ff;
+    --gray-100: #f5f5f5;
+    --gray-200: #eeeeee;
+    --gray-300: #e5e7eb;
+    --gray-400: #d1d5db;
+    --gray-500: #9ca3af;
+    --text: #333333;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--gray-100);
+    color: var(--text);
+    line-height: 1.6;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 24px;
+    flex: 1;
+    min-height: 0;
+    padding: 16px 0;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.card-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+.card-title.with-icon::before {
+    content: "🍞";
+    margin-right: 6px;
+}
+
+.drop-zone {
+    border: 2px dashed var(--gray-300);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--blue);
+    color: var(--white);
+    width: 100%;
+}
+
+.file-name {
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.form-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+input[type="number"],
+input[type="text"],
+textarea {
+    padding: 8px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+    font-family: inherit;
+}
+
+.color-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="color"] {
+    width: 30px;
+    height: 30px;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.action-row {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-green {
+    flex: 1;
+    background: var(--green);
+    color: var(--white);
+    padding: 12px;
+}
+
+.btn-green:hover {
+    background: var(--green-dark);
+}
+
+.btn-gray {
+    flex: 1;
+    background: #9fb3c8;
+    color: var(--white);
+    padding: 12px;
+}
+
+.btn-gray:disabled {
+    background: var(--gray-400);
+    color: var(--white);
+    cursor: not-allowed;
+}
+
+.right-panel {
+    background: var(--white);
+    border: 1px dashed var(--gray-300);
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-panel {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.preview-placeholder {
+    position: absolute;
+    text-align: center;
+    color: var(--gray-500);
+}
+
+.preview-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: none; /* 显示后再切换 */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+    .preview-panel { min-height: 300px; }
+}
+
+.slider-group { display: flex; flex-direction: column; gap: 12px; }
+.slider-row { display: flex; flex-direction: column; gap: 6px; }
+.slider-label { font-size: 13px; color: #666; }

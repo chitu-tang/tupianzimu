@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片字幕生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <main>
+            <div class="left-panel">
+                <section class="card">
+                    <div class="card-title">选择图片</div>
+                    <div id="dropZone" class="drop-zone">
+                        <button id="btnPick" class="btn btn-primary">点击选择图片或拖拽到此处</button>
+                        <input type="file" id="fileInput" accept="image/png, image/jpeg, image/jpg, image/webp" hidden>
+                        <div id="fileName" class="file-name">未选择文件</div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <div class="card-title with-icon">字体样式</div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="fontSize">字体大小(px)</label>
+                            <input type="number" id="fontSize" value="40">
+                        </div>
+                        <div class="form-col">
+                            <label for="lineHeight">行高(px)</label>
+                            <input type="number" id="lineHeight" value="50">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="fontColor">字体颜色</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="fontColor" value="#FFFFFF">
+                                <input type="text" id="fontColorText" value="#FFFFFF">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <label for="strokeColor">轮廓颜色</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="strokeColor" value="#000000">
+                                <input type="text" id="strokeColorText" value="#000000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="strokeWidth">轮廓宽度</label>
+                            <input type="number" id="strokeWidth" value="3">
+                        </div>
+                        <div class="form-col">
+                            <label for="bgColor">背景颜色</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="bgColor" value="#000000">
+                                <input type="text" id="bgColorText" value="#000000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-row">
+                            <div class="slider-label">背景透明度：<span id="opacityValue">0.7</span></div>
+                            <input type="range" id="bgOpacity" min="0" max="1" step="0.05" value="0.7">
+                        </div>
+                        <div class="slider-row">
+                            <div class="slider-label">背景内边距：<span id="paddingValue">20px</span></div>
+                            <input type="range" id="padding" min="0" max="100" step="1" value="20">
+                        </div>
+                        <div class="slider-row">
+                            <div class="slider-label">行间距：<span id="gapValue">2px</span></div>
+                            <input type="range" id="gap" min="0" max="30" step="1" value="2">
+                        </div>
+                        <div class="slider-row">
+                            <div class="slider-label">底部留白：<span id="bottomPadValue">0px</span></div>
+                            <input type="range" id="bottomPad" min="0" max="60" step="1" value="0">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <div class="card-title">分隔线（可选）</div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label><input type="checkbox" id="showSeparator"> 显示分隔线</label>
+                        </div>
+                        <div class="form-col">
+                            <label for="separatorWidth">分隔线宽度(px)</label>
+                            <input type="number" id="separatorWidth" value="1">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label for="separatorColor">分隔线颜色</label>
+                            <div class="color-input-wrapper">
+                                <input type="color" id="separatorColor" value="#000000">
+                                <input type="text" id="separatorColorText" value="#000000">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <div class="card-title with-icon">字幕内容</div>
+                    <textarea id="subtitleText" rows="6" placeholder="请输入字幕内容，支持多行文本…&#10;&#10;例如：&#10;别吵\\n我在给自己写钓鱼网站呢\\n对，这年头"></textarea>
+                </section>
+
+                <div class="action-row">
+                    <button id="btnGenerate" class="btn-green">生成字幕图片</button>
+                    <button id="btnSave" class="btn-gray" disabled>保存图片</button>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="preview-panel">
+                    <div class="preview-placeholder" id="previewPlaceholder">
+                        <div class="preview-icon">🖼️</div>
+                        <div class="preview-text">预览区域<br>请先上传图片，然后输入字幕内容</div>
+                    </div>
+                    <canvas id="canvas"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
