@@ -8,10 +8,14 @@
 </head>
 <body>
     <div class="container">
+        <header class="app-header">
+            <span class="film-icon">🎞️</span>
+            <span class="app-title">图片字幕生成器</span>
+        </header>
         <main>
             <div class="left-panel">
                 <section class="card">
-                    <div class="card-title">选择图片</div>
+                    <div class="card-title"><span class="title-icon icon-album">🖼️</span>选择图片</div>
                     <div id="dropZone" class="drop-zone">
                         <button id="btnPick" class="btn btn-primary">点击选择图片或拖拽到此处</button>
                         <input type="file" id="fileInput" accept="image/png, image/jpeg, image/jpg, image/webp" hidden>
@@ -20,7 +24,7 @@
                 </section>
 
                 <section class="card">
-                    <div class="card-title with-icon">字体样式</div>
+                    <div class="card-title"><span class="title-icon icon-caption">A</span>字体样式</div>
                     <div class="form-row">
                         <div class="form-col">
                             <label for="fontSize">字体大小(px)</label>
@@ -87,7 +91,7 @@
                 </section>
 
                 <section class="card">
-                    <div class="card-title">重点文字标注</div>
+                    <div class="card-title"><span class="title-icon icon-alert">❗</span>重点文字标注</div>
                     <div class="form-row">
                         <div class="form-col">
                             <label><input type="radio" name="emphasisEnable" id="emphasisNo" value="no" checked> 否</label>

@@ -37,6 +37,22 @@ body {
     flex-direction: column;
 }
 
+.app-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+.app-title {
+    font-size: 40px;
+    font-weight: 800;
+}
+.film-icon {
+    font-size: 40px;
+    line-height: 1;
+}
+
 main {
     display: grid;
     grid-template-columns: 420px 1fr;
@@ -64,12 +80,32 @@ main {
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .card-title.with-icon::before {
     content: "🍞";
     margin-right: 6px;
 }
+.title-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    line-height: 1;
+}
+.icon-album { font-size: 18px; }
+.icon-caption {
+    font-weight: 800;
+    font-size: 18px;
+    color: #1e90ff;
+    text-shadow: 1px 1px #ff3b3b, -1px -1px #ffcc00, 0 1px #00c853;
+}
+.icon-alert { color: #e53935; font-size: 18px; }
 
 .drop-zone {
     border: 2px dashed var(--gray-300);
