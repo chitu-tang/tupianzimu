@@ -80,31 +80,38 @@
                     </div>
                 </section>
 
-                <section class="card">
-                    <div class="card-title">分隔线（可选）</div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label><input type="checkbox" id="showSeparator"> 显示分隔线</label>
-                        </div>
-                        <div class="form-col">
-                            <label for="separatorWidth">分隔线宽度(px)</label>
-                            <input type="number" id="separatorWidth" value="1">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="separatorColor">分隔线颜色</label>
-                            <div class="color-input-wrapper">
-                                <input type="color" id="separatorColor" value="#000000">
-                                <input type="text" id="separatorColorText" value="#000000">
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 <section class="card">
                     <div class="card-title with-icon">字幕内容</div>
                     <textarea id="subtitleText" rows="6" placeholder="请输入字幕内容，支持多行文本…&#10;&#10;例如：&#10;别吵\\n我在给自己写钓鱼网站呢\\n对，这年头"></textarea>
+                </section>
+
+                <section class="card">
+                    <div class="card-title">重点文字标注</div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label><input type="radio" name="emphasisEnable" id="emphasisNo" value="no" checked> 否</label>
+                        </div>
+                        <div class="form-col">
+                            <label><input type="radio" name="emphasisEnable" id="emphasisYes" value="yes"> 是</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-col">
+                            <label class="emphasis-label">标注颜色</label>
+                            <div class="emphasis-colors">
+                                <label><input type="radio" name="emphasisColor" id="emphasisColorRed" value="red" disabled> 红色</label>
+                                <label><input type="radio" name="emphasisColor" id="emphasisColorYellow" value="yellow" checked disabled> 黄色</label>
+                                <label><input type="radio" name="emphasisColor" id="emphasisColorOrange" value="orange" disabled> 橙色</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-col">
+                            <label class="emphasis-label">选择需要高亮的字幕行（可多选）</label>
+                            <div id="emphasisList" class="emphasis-list" aria-label="选择需要高亮的字幕行（可多选）"></div>
+                        </div>
+                    </div>
                 </section>
 
                 <div class="action-row">

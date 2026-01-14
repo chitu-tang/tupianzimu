@@ -110,6 +110,9 @@ main {
     gap: 12px;
     margin-bottom: 10px;
 }
+.form-row.full {
+    grid-template-columns: 1fr;
+}
 
 .form-col {
     display: flex;
@@ -231,3 +234,31 @@ canvas {
 .slider-group { display: flex; flex-direction: column; gap: 12px; }
 .slider-row { display: flex; flex-direction: column; gap: 6px; }
 .slider-label { font-size: 13px; color: #666; }
+
+/* Emphasis styles */
+.emphasis-label {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin-bottom: 6px;
+}
+.emphasis-list {
+    width: 100%;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.emphasis-list .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.emphasis-colors {
+    display: flex;
+    gap: 16px;
+}
