@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/subtitle-generator" }
+    { "source": "/", "destination": "/subtitle-generator/index.html" },
+    { "source": "/(.*)", "destination": "/subtitle-generator/$1" }
   ]
 }
