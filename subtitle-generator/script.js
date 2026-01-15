@@ -9,18 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Inputs
     const inputFontSize = document.getElementById('fontSize');
-    const inputLineHeight = document.getElementById('lineHeight');
-    const inputFontColor = document.getElementById('fontColor');
-    const inputFontColorText = document.getElementById('fontColorText');
-    const inputStrokeColor = document.getElementById('strokeColor');
-    const inputStrokeColorText = document.getElementById('strokeColorText');
-    const inputStrokeWidth = document.getElementById('strokeWidth');
     const inputBgColor = document.getElementById('bgColor');
     const inputBgColorText = document.getElementById('bgColorText');
     const inputOpacity = document.getElementById('bgOpacity');
     const opacityValue = document.getElementById('opacityValue');
-    const inputPadding = document.getElementById('padding');
-    const paddingValue = document.getElementById('paddingValue');
     const inputGap = document.getElementById('gap');
     const gapValue = document.getElementById('gapValue');
     const inputBottomPad = document.getElementById('bottomPad');
@@ -88,19 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // Config Changes
-        const inputs = [inputFontSize, inputLineHeight, inputStrokeWidth, inputBgColorText, inputText, inputOpacity, inputPadding, inputGap, inputBottomPad];
+        const inputs = [inputFontSize, inputBgColorText, inputText, inputOpacity, inputGap, inputBottomPad];
         inputs.forEach(el => el.addEventListener('input', () => {
             updateConfig();
             draw();
         }));
         opacityValue.textContent = inputOpacity.value;
-        paddingValue.textContent = `${inputPadding.value}px`;
         gapValue.textContent = `${inputGap.value}px`;
         bottomPadValue.textContent = `${inputBottomPad.value}px`;
 
         // Color Sync (Picker <-> Text)
-        syncColorInputs(inputFontColor, inputFontColorText, 'fontColor');
-        syncColorInputs(inputStrokeColor, inputStrokeColorText, 'strokeColor');
         syncColorInputs(inputBgColor, inputBgColorText, 'bgColor');
         // 分隔线模块已移除
         
@@ -158,15 +147,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateConfig() {
         state.config.fontSize = parseInt(inputFontSize.value) || 20;
-        state.config.lineHeight = parseInt(inputLineHeight.value) || (state.config.fontSize + 10);
-        state.config.fontColor = inputFontColorText.value;
-        state.config.strokeColor = inputStrokeColorText.value;
-        state.config.strokeWidth = parseFloat(inputStrokeWidth.value) || 2;
+        state.config.lineHeight = state.config.fontSize + 10;
         state.config.bgColor = inputBgColorText.value;
         state.config.bgOpacity = parseFloat(inputOpacity.value) || 0.7;
         opacityValue.textContent = String(state.config.bgOpacity);
-        state.config.paddingX = parseInt(inputPadding.value) || 0;
-        paddingValue.textContent = `${state.config.paddingX}px`;
+        state.config.paddingX = 20;
         state.config.gap = parseInt(inputGap.value) || 0;
         gapValue.textContent = `${state.config.gap}px`;
         state.config.bottomPad = parseInt(inputBottomPad.value) || 0;
